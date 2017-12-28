@@ -13,9 +13,9 @@ exec 1> sitemap.xml
 
 # print head
 echo '<?xml version="1.0" encoding="UTF-8"?>'
+echo "<?xml-stylesheet type='text/xsl' href='${URL}sitemap.xsl'?>"
 echo '<!-- generator="Milkys Sitemap Generator, https://github.com/mcmilk/sitemap-generator" -->'
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-echo "<?xml-stylesheet type='text/xsl' href='${URL}sitemap.xsl'?>"
 
 # print urls
 IFS=$'\r\n' GLOBIGNORE='*' command eval "OPTIONS=($(cat $0.options))"
