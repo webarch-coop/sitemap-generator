@@ -13,7 +13,7 @@ exec 1> sitemap.xml
 
 # print head
 echo '<?xml version="1.0" encoding="UTF-8"?>'
-echo "<?xml-stylesheet type='text/xsl' href='${URL}sitemap.xsl'?>"
+echo '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
 echo '<!-- generator="Milkys Sitemap Generator, https://github.com/mcmilk/sitemap-generator" -->'
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
