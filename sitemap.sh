@@ -22,12 +22,18 @@ find . -type f "${OPTIONS[@]}" -printf "%TY-%Tm-%Td%p\n" | \
 while read -r line; do
   DATE=${line:0:10}
   FILE=${line:12}
-  # Remove .shtml from the filenames for the URLs
-  PATH=$(echo "${FILE}" | "${SED}" -e 's/\.shtml$//')
+  # Remove .shtml and index from the filenames for the URLs
+  PATH=$(echo "${FILE}" | "${SED}" -e 's/\.shtml$//' | "${SED}" -e 's/^index$//')
   echo "<url>"
   echo " <loc>${URL}${PATH}</loc>"
   echo " <lastmod>$DATE</lastmod>"
-#  echo " <changefreq>$FREQ</changefreq>"
+  # Add a priority element for the front page and main section pages
+  if [[ ( "${PATH}" == '' ) || ( "${PATH}" == 'hosting' ) || ( "${PATH}" == 'support' ) || ( "${PATH}" == 'about' ) || ( "${PATH}" ==  'help' ) ]]; then
+    echo " <priority>1.0</priority>"
+  else
+    echo " <priority>0.5</priority>"
+  fi
+  echo " <changefreq>$FREQ</changefreq>"
   echo "</url>"
 done
 

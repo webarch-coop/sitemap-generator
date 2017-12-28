@@ -4,4 +4,9 @@ Will generate a sitemap.xml file for the current directory and all it's subdirec
 
 The options of find are located in _sitemap.sh.options_ - there you can deselect file types or directories.
 
-/TR 2017-02-04
+## Webarchitects fork
+
+This version differs from [the original](https://github.com/mcmilk/sitemap-generator) as it sets the `priority` for the key pages on the [Webarchitects](https://www.webarchitects.coop/) site and also omits the `.shtml` extensions from the filenames.
+
+The [code for the Webarchitects site](https://git.coop/webarch/website) is on [git.coop](https://git.coop/).
+
