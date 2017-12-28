@@ -6,6 +6,8 @@ URL="https://www.webarchitects.coop/"
 # values: always hourly daily weekly monthly yearly never
 FREQ="weekly"
 
+SED=$(which sed)
+
 # begin new sitemap
 exec 1> sitemap.xml
 
@@ -21,7 +23,7 @@ while read -r line; do
   DATE=${line:0:10}
   FILE=${line:12}
   # Remove .shtml from the filenames for the URLs
-  PATH=$(echo ${FILE} | sed 's/\.shtml$//')
+  PATH=$(echo "${FILE}" | "${SED}" -e 's/\.shtml$//')
   echo "<url>"
   echo " <loc>${URL}${PATH}</loc>"
   echo " <lastmod>$DATE</lastmod>"
