@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # url configuration
-URL="https://mcmilk.de/"
+URL="https://www.webarchitects.coop/"
 
 # values: always hourly daily weekly monthly yearly never
 FREQ="weekly"
@@ -23,7 +23,7 @@ while read -r line; do
   echo "<url>"
   echo " <loc>${URL}${FILE}</loc>"
   echo " <lastmod>$DATE</lastmod>"
-  echo " <changefreq>$FREQ</changefreq>"
+#  echo " <changefreq>$FREQ</changefreq>"
   echo "</url>"
 done
 
