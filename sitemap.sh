@@ -20,8 +20,10 @@ find . -type f "${OPTIONS[@]}" -printf "%TY-%Tm-%Td%p\n" | \
 while read -r line; do
   DATE=${line:0:10}
   FILE=${line:12}
+  # Remove .shtml from the filenames for the URLs
+  PATH=$(echo ${FILE} | sed 's/\.shtml$//')
   echo "<url>"
-  echo " <loc>${URL}${FILE}</loc>"
+  echo " <loc>${URL}${PATH}</loc>"
   echo " <lastmod>$DATE</lastmod>"
 #  echo " <changefreq>$FREQ</changefreq>"
   echo "</url>"

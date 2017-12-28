@@ -6,3 +6,4 @@
 ! -path ./logos/\*
 ! -path ./fragments/\*
 ! -path ./pdf/\*
+-name "*.shtml"
