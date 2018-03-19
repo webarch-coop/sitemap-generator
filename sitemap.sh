@@ -8,6 +8,8 @@ FREQ="weekly"
 
 SED=$(which sed)
 
+DATE_TODAY=$(date +%Y-%m-%d)
+
 # begin new sitemap
 exec 1> sitemap.xml
 
@@ -37,6 +39,14 @@ while read -r line; do
   echo " <changefreq>$FREQ</changefreq>"
   echo "</url>"
 done
+
+# Add the status page
+echo "<url>"
+echo " <loc>https://www.webarch.info</loc>"
+echo " <lastmod>${DATE_TODAY}</lastmod>"
+echo " <priority>1</priority>"
+echo " <changefreq>hourly</changefreq>"
+echo "</url>"
 
 # print foot
 echo "</urlset>"
