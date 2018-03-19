@@ -42,7 +42,7 @@ done
 
 # Add the status page
 echo "<url>"
-echo " <loc>https://www.webarch.info</loc>"
+echo " <loc>https://www.webarch.info/</loc>"
 echo " <lastmod>${DATE_TODAY}</lastmod>"
 echo " <priority>1</priority>"
 echo " <changefreq>hourly</changefreq>"
